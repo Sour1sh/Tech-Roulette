@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CampusGig: verified part-time work and tutoring for students</title>
+<meta name="description" content="Discover, filter and apply for verified student opportunities on campus.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--bg:#F3F5FA;--surface:#fff;--ink:#10162F;--mute:#4B5470;--line:#D9DEEC;--pri:#2D3BE0;--pri-ink:#fff;--acc:#FFD23F;--ok:#0E8A58;--okbg:#DDF5E9;--hero:#10162F;--hero-ink:#F3F5FA}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1022;--surface:#161D38;--ink:#EEF1FB;--mute:#A4ACC8;--line:#2A3355;--pri:#7C88FF;--pri-ink:#0B1022;--ok:#4FD39A;--okbg:#12362A;--hero:#070B18}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 'Instrument Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque','Instrument Sans',sans-serif;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:.6rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+section{padding:80px 0}
+.lead{color:var(--mute);max-width:60ch;margin-bottom:2rem}
+nav{position:sticky;top:0;z-index:20;background:var(--hero);color:var(--hero-ink)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav b{font:700 1.25rem 'Bricolage Grotesque',sans-serif}
+nav ul{display:flex;gap:22px;list-style:none;padding:0}
+nav a{text-decoration:none;font-size:.95rem}nav a:hover{color:var(--acc)}
+.btn{display:inline-block;background:var(--acc);color:#10162F;font-weight:700;padding:13px 24px;border-radius:999px;border:0;text-decoration:none;cursor:pointer;font-size:1rem;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.alt{background:transparent;color:inherit;border:2px solid currentColor}
+.hero{background:var(--hero);color:var(--hero-ink);padding:72px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:1.2rem}
+.hero p{color:#B8C0DE;max-width:46ch;margin-bottom:1.8rem;font-size:1.15rem}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+.stack{position:relative;height:340px}
+.note{position:absolute;width:82%;background:#fff;color:#10162F;border-radius:6px;padding:20px 22px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.note::before{content:"";position:absolute;top:-8px;left:50%;width:14px;height:14px;border-radius:50%;background:#E5484D}
+.note.n1{top:0;left:0;transform:rotate(-4deg)}.note.n2{top:150px;right:0;transform:rotate(3deg);animation:drop .9s .2s both}
+@keyframes drop{from{opacity:0;transform:translateY(-40px) rotate(8deg)}}
+.note h3{font-size:1.15rem;margin:.5rem 0 .2rem}.note small{color:#4B5470}
+.stamp{display:inline-block;border:2px solid var(--ok);color:#0E8A58;font-weight:700;font-size:.8rem;padding:2px 9px;border-radius:4px;transform:rotate(-3deg)}
+.stamp.no{border-color:#C4262E;color:#C4262E}
+.grid{display:grid;gap:18px}.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{font-size:1.2rem;margin-bottom:.4rem}.card p{color:var(--mute);font-size:.97rem}
+.problem{background:var(--surface);border-block:1px solid var(--line)}
+.quote{font:600 clamp(1.3rem,2.6vw,1.9rem)/1.35 'Bricolage Grotesque',sans-serif;max-width:30ch}
+.bad{margin-top:1.5rem;display:grid;gap:10px}.bad li{list-style:none;padding:12px 16px;border-left:4px solid #C4262E;background:var(--bg);border-radius:0 8px 8px 0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.tools input,.tools select{padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+.tools input[type=search]{flex:1;min-width:200px}
+.chip{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;font-size:.92rem}
+.chip[aria-pressed=true]{background:var(--pri);color:var(--pri-ink);border-color:var(--pri)}
+.tog{display:flex;align-items:center;gap:8px;font-size:.95rem;margin-left:auto}
+.job{display:flex;flex-direction:column;gap:8px}
+.job .top{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.tag{font-size:.8rem;background:var(--bg);border:1px solid var(--line);padding:2px 10px;border-radius:999px}
+.ver{background:var(--okbg);color:var(--ok);font-weight:700;font-size:.78rem;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.ver.unv{background:#FBE3E4;color:#C4262E}
+.meta{display:flex;flex-wrap:wrap;gap:6px}.pay{font-weight:700}
+.job .btn{margin-top:auto;align-self:flex-start;padding:9px 20px;background:var(--pri);color:var(--pri-ink)}
+.job .btn[disabled]{background:var(--ok);color:#fff;cursor:default;transform:none}
+.count{color:var(--mute);margin-bottom:12px}
+.empty{padding:40px;text-align:center;border:2px dashed var(--line);border-radius:14px;color:var(--mute)}
+dialog{border:0;border-radius:16px;padding:28px;width:min(440px,92vw);background:var(--surface);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(8,12,30,.6)}
+dialog label{display:block;font-weight:600;margin:14px 0 4px}dialog input{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.row{display:flex;gap:10px;margin-top:20px}
+.steps{counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.steps li{list-style:none;counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;position:relative}
+.steps li::before{content:counter(s);position:absolute;top:-16px;left:20px;background:var(--acc);color:#10162F;font:700 1rem 'Bricolage Grotesque';width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.steps h3{margin-top:6px}.steps p{color:var(--mute);font-size:.95rem}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:28px}
+.nums b{display:block;font:700 2.4rem 'Bricolage Grotesque';color:var(--pri)}.nums span{color:var(--mute);font-size:.92rem}
+ul.fut{padding-left:1.2rem;color:var(--mute)}
+footer{background:var(--hero);color:var(--hero-ink);padding:48px 0}
+footer p{color:#B8C0DE;font-size:.95rem}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,120px);background:var(--ok);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;transition:transform .3s;z-index:50}
+#toast.show{transform:translate(-50%,0)}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.stack{height:300px}nav ul{display:none}section{padding:56px 0}.tog{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<nav><div class="wrap"><b>CampusGig</b><ul><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li><li><a href="#demo">Try it</a></li><li><a href="#how">How it works</a></li><li><a href="#team">Team</a></li></ul></div></nav>
+<header class="hero"><div class="wrap"><div>
+<h1>Work you can trust, close to class.</h1>
+<p>CampusGig lists only verified part-time jobs, tutoring gigs and campus events, so students spend time earning, not checking who is real.</p>
+<div class="btns"><a class="btn" href="#demo">Browse opportunities</a><a class="btn alt" href="#how">See how we verify</a></div></div>
+<div class="stack" aria-hidden="true"><div class="note n1"><span class="stamp no">Not verified</span><h3>Earn ₹50,000 from home!!</h3><small>Asks for a registration fee</small></div><div class="note n2"><span class="stamp">Verified</span><h3>Library Desk Assistant</h3><small>Central Library · ₹6,000/mo</small></div></div></div></header>
+<main>
+<section id="problem" class="problem"><div class="wrap"><h2>Good gigs are scattered. Scams are not.</h2>
+<p class="quote">A first-year posts "need money" in five WhatsApp groups. Two replies are fake, one is a fee, and the real tutoring gig was never shared.</p>
+<ul class="bad" style="padding:0"><li>Opportunities live in scattered chats, notice boards and word of mouth.</li><li>Students cannot tell a real employer from a scam before they apply.</li><li>Timetables clash, so students apply to roles they cannot attend.</li></ul></div></section>
+<section id="solution"><div class="wrap"><h2>One verified hub for every kind of student gig</h2><p class="lead">Everything a student needs to find, trust and apply, in one place.</p>
+<div class="grid g4"><div class="card"><h3>Verified listings</h3><p>Every poster is checked by the college or a faculty sponsor before a listing goes live.</p></div><div class="card"><h3>Smart filters</h3><p>Filter by type, location, pay and whether the listing is verified.</p></div><div class="card"><h3>One-tap apply</h3><p>Apply from the listing with one short form. No email chains.</p></div><div class="card"><h3>Scam flags</h3><p>Fee requests and unconfirmed employers are marked and cannot take applications.</p></div></div></div></section>
+<section id="demo" style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap"><h2>Try it: find a gig and apply</h2><p class="lead">This is a working demo with sample data. Search, filter, then apply to a verified listing. Notice the two flagged ones.</p>
+<div class="tools"><input id="q" type="search" placeholder="Search roles, e.g. tutor" aria-label="Search opportunities"><select id="loc" aria-label="Location"><option>All</option><option>On campus</option><option>Salt Lake</option><option>Remote</option></select><label class="tog"><input type="checkbox" id="vo"> Verified only</label></div>
+<div class="tools" role="group" aria-label="Category"><button class="chip" data-c="All" aria-pressed="true">All</button><button class="chip" data-c="Part-Time" aria-pressed="false">Part-Time</button><button class="chip" data-c="Tutoring" aria-pressed="false">Tutoring</button><button class="chip" data-c="Event" aria-pressed="false">Events</button><button class="chip" data-c="Campus Job" aria-pressed="false">Campus Jobs</button></div>
+<p class="count" id="count" aria-live="polite"></p><div class="grid g4" id="list" style="grid-template-columns:repeat(auto-fill,minmax(290px,1fr))"></div></div></section>
+<section id="how"><div class="wrap"><h2>How it works</h2><p class="lead">From posting to hired in four steps.</p>
+<ol class="steps" style="padding:0"><li><h3>Employer registers</h3><p>Submits organisation details and a contact person.</p></li><li><h3>College verifies</h3><p>An admin confirms identity. Fee requests are rejected.</p></li><li><h3>Student discovers</h3><p>Filters the feed and opens a verified listing.</p></li><li><h3>Student applies</h3><p>Sends one form and tracks the status.</p></li></ol></div></section>
+<section style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap"><h2>Impact and what comes next</h2>
+<div class="nums"><div><b>0</b><span>unverified applications accepted</span></div><div><b>1</b><span>place for jobs, tutoring and events</span></div><div><b>3 taps</b><span>from search to applied</span></div></div>
+<div class="grid g2"><div class="card"><h3>Benefits</h3><p>Students earn safely, employers reach real candidates, and the college gets a record of student work.</p></div><div class="card"><h3>Future scope</h3><ul class="fut"><li>Timetable-aware matching</li><li>Ratings from past students</li><li>College ID login and notifications</li></ul></div></div></div></section>
+<section id="team"><div class="wrap"><h2>Team</h2><div class="grid g4"><div class="card"><h3>Sourish Chakraverti</h3><p>B.Tech CSE (AIML), IEM Salt Lake</p></div><div class="card"><h3>Teammate name</h3><p>Role</p></div><div class="card"><h3>Teammate name</h3><p>Role</p></div></div></div></section>
+</main>
+<footer><div class="wrap"><b style="font:700 1.3rem 'Bricolage Grotesque'">CampusGig</b><p>Campus Part-Time Opportunity Hub · Hackathon problem 12</p></div></footer>
+<dialog id="dlg"><form id="form"><h3 id="dt" style="font-size:1.3rem"></h3><label for="n">Full name</label><input id="n" required><label for="e">College email</label><input id="e" type="email" required><div class="row"><button class="btn" style="background:var(--pri);color:var(--pri-ink)">Send application</button><button class="btn alt" type="button" id="cancel">Cancel</button></div></form></dialog>
+<div id="toast" role="status"></div>
+<script>const OPPS=[
+{t:"Library Desk Assistant",o:"Central Library",c:"Campus Job",p:"₹6,000/mo",l:"On campus",m:"Evenings, 15 hrs/wk",v:1,d:"Help issue books and manage the reading room."},
+{t:"Maths Tutor, Class 9-10",o:"Brightpath Learning Centre",c:"Tutoring",p:"₹400/hr",l:"Salt Lake",m:"Weekends",v:1,d:"Small-batch tutoring for ICSE students."},
+{t:"Fest Volunteer Crew",o:"Student Council",c:"Event",p:"Certificate + meals",l:"On campus",m:"2 days",v:1,d:"Registration desk, stage and logistics support."},
+{t:"Social Media Intern",o:"Campus Cafe Collective",c:"Part-Time",p:"₹5,000/mo",l:"Remote",m:"10 hrs/wk",v:1,d:"Create reels and posts for campus food outlets."},
+{t:"Lab Assistant, Physics",o:"Dept. of Applied Sciences",c:"Campus Job",p:"₹7,500/mo",l:"On campus",m:"Mon-Wed",v:1,d:"Set up experiments and log equipment."},
+{t:"Python Mentor",o:"Coding Club",c:"Tutoring",p:"₹500/hr",l:"Remote",m:"Flexible",v:1,d:"Teach first-year students Python basics."},
+{t:"Hackathon Photographer",o:"Tech Fest Committee",c:"Event",p:"₹1,500/day",l:"On campus",m:"Fest week",v:1,d:"Cover events and deliver edited photos in 48 hours."},
+{t:"Delivery Partner, Evenings",o:"Local Grocer Network",c:"Part-Time",p:"₹9,000/mo",l:"Salt Lake",m:"6-10 PM",v:1,d:"Deliver orders within 3 km of campus."},
+{t:"Earn ₹50,000 from home!!",o:"Unknown poster",c:"Part-Time",p:"Pay a ₹2,000 'registration fee'",l:"Remote",m:"No skills needed",v:0,d:"Asks for upfront payment. Flagged by the community."},
+{t:"Data Entry Typist",o:"No contact details",c:"Part-Time",p:"₹800/day",l:"Remote",m:"Anytime",v:0,d:"Organisation could not be confirmed. Not yet verified."}];
+const $=s=>document.querySelector(s);let cat="All",applied=new Set(),cur=null;
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(){
+ const q=$("#q").value.toLowerCase(),vo=$("#vo").checked,loc=$("#loc").value;
+ const r=OPPS.map((x,i)=>({...x,i})).filter(x=>(cat=="All"||x.c==cat)&&(!vo||x.v)&&(loc=="All"||x.l==loc)&&(x.t+x.o+x.d).toLowerCase().includes(q));
+ $("#count").textContent=r.length+" opportunit"+(r.length==1?"y":"ies")+" found";
+ $("#list").innerHTML=r.length?r.map(x=>`<article class="card job"><div class="top"><span class="tag">${x.c}</span><span class="ver ${x.v?"":"unv"}">${x.v?"✔ Verified":"⚠ Unverified"}</span></div><h3>${esc(x.t)}</h3><p>${esc(x.o)}</p><p>${esc(x.d)}</p><div class="meta"><span class="tag pay">${esc(x.p)}</span><span class="tag">${x.l}</span><span class="tag">${x.m}</span></div>${x.v?`<button class="btn" data-i="${x.i}" ${applied.has(x.i)?"disabled":""}>${applied.has(x.i)?"Applied":"Apply now"}</button>`:`<p><b>Applications closed:</b> only verified listings accept applications.</p>`}</article>`).join(""):`<div class="empty">No matches. Clear a filter or try another search word.</div>`;
+}
+document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cat=b.dataset.c;document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+["#q","#vo","#loc"].forEach(s=>$(s).addEventListener("input",render));
+$("#list").onclick=e=>{const b=e.target.closest("button[data-i]");if(!b||b.disabled)return;cur=+b.dataset.i;$("#dt").textContent=OPPS[cur].t+" at "+OPPS[cur].o;$("#dlg").showModal()};
+$("#cancel").onclick=()=>$("#dlg").close();
+$("#form").onsubmit=e=>{e.preventDefault();applied.add(cur);$("#dlg").close();e.target.reset();render();const t=$("#toast");t.textContent="Application sent to "+OPPS[cur].o;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)};
+render();
+</script></body></html>
